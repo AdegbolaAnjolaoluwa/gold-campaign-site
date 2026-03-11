@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vote Gold — Assistant Director of Socials | COLAW Caleb University</title>
+<title>Vote Gold | Assistant Director of Socials | COLAW Caleb University</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -820,7 +820,7 @@
     <span class="ticker-sep">✦</span>
     <span class="ticker-item">ASSISTANT DIRECTOR OF SOCIALS</span>
     <span class="ticker-sep">✦</span>
-    <span class="ticker-item">NOT JUST EVENTS — A BETTER COLAW</span>
+    <span class="ticker-item">NOT JUST EVENTS. A BETTER COLAW</span>
     <span class="ticker-sep">✦</span>
     <span class="ticker-item">COLLEGE OF LAW · CALEB UNIVERSITY</span>
     <span class="ticker-sep">✦</span>
@@ -828,7 +828,7 @@
     <span class="ticker-sep">✦</span>
     <span class="ticker-item">ASSISTANT DIRECTOR OF SOCIALS</span>
     <span class="ticker-sep">✦</span>
-    <span class="ticker-item">NOT JUST EVENTS — A BETTER COLAW</span>
+    <span class="ticker-item">NOT JUST EVENTS. A BETTER COLAW</span>
     <span class="ticker-sep">✦</span>
     <span class="ticker-item">COLLEGE OF LAW · CALEB UNIVERSITY</span>
     <span class="ticker-sep">✦</span>
@@ -843,7 +843,7 @@
     <div class="hero-vote">✦ VOTE ✦</div>
     <h1 class="hero-name">ASHIMOLOWO<br><span>GOLD</span></h1>
     <div class="hero-title">For Assistant Director of Socials</div>
-    <p class="hero-tagline">"Student life is not complete<br>without social life — let me bring<br>the experience to you."</p>
+    <p class="hero-tagline">"Student life is not complete<br>without social life. Let me bring<br>the experience to you."</p>
     <a href="#solutions" class="cta-btn"><span>See My Vision →</span></a>
   </div>
   <div class="hero-image">
@@ -938,14 +938,14 @@
   </h2>
   <div class="solutions-layout">
     <div class="solutions-img-wrap reveal">
-      <img src="" id="solutionsImage" data-img="solutions" alt="Vote Gold — Campaign Poster" />
+      <img src="" id="solutionsImage" data-img="solutions" alt="Vote Gold Campaign Poster" />
     </div>
     <div class="solutions-list">
       <div class="solution-item reveal">
         <div class="solution-check">✓</div>
         <div>
           <h3>Monthly COLAW Social Events</h3>
-          <p>Structured, consistent monthly events — game nights, dinner socials, themed hangouts — designed to decompress law students and build real friendships across levels.</p>
+          <p>Structured, consistent monthly events: game nights, dinner socials, themed hangouts, designed to decompress law students and build real friendships across levels.</p>
         </div>
       </div>
       <div class="solution-item reveal">
@@ -966,14 +966,14 @@
         <div class="solution-check">✓</div>
         <div>
           <h3>Student-Led Event Planning</h3>
-          <p>A transparent event committee where students submit ideas and vote on social activities — ensuring every event truly reflects what COLAW students want.</p>
+          <p>A transparent event committee where students submit ideas and vote on social activities, ensuring every event truly reflects what COLAW students want.</p>
         </div>
       </div>
       <div class="solution-item reveal">
         <div class="solution-check">✓</div>
         <div>
           <h3>Culture of Recognition & Celebration</h3>
-          <p>A dedicated program to celebrate academic wins, birthdays, and milestones — making every COLAW student feel seen, valued, and proud of their community.</p>
+          <p>A dedicated program to celebrate academic wins, birthdays, and milestones, making every COLAW student feel seen, valued, and proud of their community.</p>
         </div>
       </div>
     </div>
@@ -999,7 +999,7 @@
 <!-- WHY GOLD BANNER -->
 <div class="why-section" id="why">
   <h2>WHY CHOOSE GOLD?</h2>
-  <p>Because COLAW deserves more than ordinary events. It deserves a social director who is passionate, organized, and truly invested in making every student's experience unforgettable. Gold is not just a name — it's a standard.</p>
+  <p>Because COLAW deserves more than ordinary events. It deserves a social director who is passionate, organized, and truly invested in making every student's experience unforgettable. Gold is not just a name. It's a standard.</p>
 </div>
 
 <!-- FOOTER -->
@@ -1194,79 +1194,8 @@
   if (carousel && carouselTrack && carouselDots) {
     const heroImg = document.querySelector('.hero-img-wrap img');
     const solutionsImg = document.querySelector('.solutions-img-wrap img');
-    const buildPosterSrc = (photoSrc) => {
-      const safePhoto = typeof photoSrc === 'string' && photoSrc.startsWith('data:image') ? photoSrc : '';
-      const svg = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="900" height="1125" viewBox="0 0 900 1125">
-          <defs>
-            <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#0A2472"/>
-              <stop offset="0.55" stop-color="#060D1F"/>
-              <stop offset="1" stop-color="#0A2472"/>
-            </linearGradient>
-            <radialGradient id="glow" cx="0.7" cy="0.35" r="0.9">
-              <stop offset="0" stop-color="#D4A017" stop-opacity="0.18"/>
-              <stop offset="0.7" stop-color="#D4A017" stop-opacity="0"/>
-            </radialGradient>
-            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.35"/>
-            </filter>
-          </defs>
-
-          <rect width="900" height="1125" fill="url(#bg)"/>
-          <rect width="900" height="1125" fill="url(#glow)"/>
-
-          <rect x="40" y="40" width="820" height="1045" rx="28" fill="rgba(255,255,255,0.04)" stroke="rgba(212,160,23,0.35)" stroke-width="2"/>
-
-          <g transform="translate(54,74)">
-            <circle cx="34" cy="34" r="34" fill="#D4A017" opacity="0.95"/>
-            <circle cx="122" cy="34" r="34" fill="#0A2472" opacity="0.95" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-            <text x="180" y="42" font-family="Montserrat, Arial" font-size="22" font-weight="800" fill="rgba(255,255,255,0.9)" letter-spacing="2">CALEB UNIVERSITY</text>
-            <text x="180" y="70" font-family="Montserrat, Arial" font-size="12" font-weight="700" fill="rgba(255,255,255,0.65)" letter-spacing="3">COLLEGE OF LAW • LAGOS</text>
-          </g>
-
-          <g transform="translate(60,170)">
-            <rect x="0" y="0" width="320" height="320" rx="26" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
-            ${safePhoto ? `<image href="${safePhoto}" x="0" y="0" width="320" height="320" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip)"/>` : ``}
-          </g>
-
-          <defs>
-            <clipPath id="clip">
-              <rect x="60" y="170" width="320" height="320" rx="26"/>
-            </clipPath>
-          </defs>
-
-          <g transform="translate(470,240)">
-            <text x="0" y="0" font-family="Bebas Neue, Arial" font-size="120" fill="#FFFFFF" letter-spacing="6" filter="url(#shadow)">GOLD</text>
-            <text x="0" y="70" font-family="Playfair Display, Georgia" font-size="28" font-style="italic" fill="#F5C842" opacity="0.9">For</text>
-            <text x="0" y="132" font-family="Montserrat, Arial" font-size="40" font-weight="900" fill="rgba(255,255,255,0.92)">Assistant Director</text>
-            <text x="0" y="186" font-family="Montserrat, Arial" font-size="40" font-weight="900" fill="rgba(255,255,255,0.92)">of Socials</text>
-          </g>
-
-          <g transform="translate(70,555)">
-            <text x="0" y="0" font-family="Bebas Neue, Arial" font-size="54" fill="#CC0000" letter-spacing="4">WHY CHOOSE GOLD?</text>
-            <text x="0" y="52" font-family="Montserrat, Arial" font-size="24" fill="rgba(255,255,255,0.82)">Student life is not complete without social life</text>
-            <text x="0" y="84" font-family="Montserrat, Arial" font-size="24" fill="rgba(255,255,255,0.82)">let me bring the experience to you.</text>
-          </g>
-
-          <g transform="translate(62,875)">
-            <rect x="0" y="0" width="776" height="74" rx="18" fill="rgba(204,0,0,0.14)" stroke="rgba(204,0,0,0.55)" stroke-width="2"/>
-            <text x="388" y="50" text-anchor="middle" font-family="Bebas Neue, Arial" font-size="44" fill="#FF4444" letter-spacing="5">NOT JUST EVENTS. A BETTER COLAW</text>
-          </g>
-
-          <g transform="translate(0,0) rotate(-14 185 230)">
-            <rect x="60" y="165" width="250" height="92" rx="12" fill="rgba(204,0,0,0.96)" filter="url(#shadow)"/>
-            <text x="185" y="226" text-anchor="middle" font-family="Bebas Neue, Arial" font-size="60" fill="#FFFFFF" letter-spacing="6">VOTE</text>
-          </g>
-        </svg>
-      `.trim();
-      const b64 = btoa(unescape(encodeURIComponent(svg)));
-      return `data:image/svg+xml;base64,${b64}`;
-    };
-
-    const posterSrc = buildPosterSrc(heroImg && heroImg.src);
     const extraGallerySources = [];
-    const sources = [posterSrc, heroImg && heroImg.src, solutionsImg && solutionsImg.src, ...extraGallerySources].filter(Boolean);
+    const sources = [heroImg && heroImg.src, solutionsImg && solutionsImg.src, ...extraGallerySources].filter(Boolean);
     const safeSources = sources.length ? sources : [];
 
     safeSources.forEach((src, idx) => {
@@ -1274,7 +1203,7 @@
       slide.className = 'carousel-slide';
       const img = document.createElement('img');
       img.src = src;
-      img.alt = idx === 0 ? 'Gold campaign poster' : `Gold campaign photo ${idx}`;
+      img.alt = `Gold campaign photo ${idx + 1}`;
       slide.appendChild(img);
       carouselTrack.appendChild(slide);
 
