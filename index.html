@@ -1264,7 +1264,8 @@
     </h2>
     <div class="solutions-layout">
       <div class="solutions-img-wrap reveal">
-        <img src="./gold-poster.jpg" id="solutionsImage" data-img="solutions" alt="Vote Gold Campaign Poster" />
+        <img src="./gold-campaign-poster.png" id="solutionsImage" data-img="solutions"
+          alt="Vote Gold Campaign Poster" />
       </div>
       <div class="solutions-list">
         <div class="solution-item reveal">
@@ -1363,7 +1364,7 @@
         ctx.drawImage(img, sx, sy, s, s, 0, 0, size, size);
         faviconLink.setAttribute('href', canvas.toDataURL('image/png'));
       };
-      img.src = "./gold-poster.jpg";
+      img.src = "./gold-campaign-poster.png";
     }
 
     const setStagger = () => {
@@ -1538,11 +1539,8 @@
     const carouselTrack = document.getElementById('carouselTrack');
     const carouselDots = document.getElementById('carouselDots');
     if (carousel && carouselTrack && carouselDots) {
-      const heroImg = document.querySelector('.hero-img-wrap img');
-      const solutionsImg = document.querySelector('.solutions-img-wrap img');
-      const extraGallerySources = [];
-      const sources = [heroImg && heroImg.src, solutionsImg && solutionsImg.src, ...extraGallerySources].filter(Boolean);
-      const safeSources = sources.length ? sources : [];
+      const extraGallerySources = ['./gold-hero.jpg', './gold-campaign-poster.png'];
+      const safeSources = extraGallerySources;
 
       safeSources.forEach((src, idx) => {
         const slide = document.createElement('div');
