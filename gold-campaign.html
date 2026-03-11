@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vote Gold | Assistant Director of Socials | COLAW Caleb University</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+<link id="favicon" rel="icon" type="image/png" href="">
 <style>
   :root {
     --blue: #0A2472;
@@ -1019,6 +1020,25 @@
   if (heroImageEl && window.HERO_IMAGE_SRC) heroImageEl.src = window.HERO_IMAGE_SRC;
   const solutionsImageEl = document.getElementById('solutionsImage');
   if (solutionsImageEl && window.SOLUTIONS_IMAGE_SRC) solutionsImageEl.src = window.SOLUTIONS_IMAGE_SRC;
+  const faviconLink = document.getElementById('favicon');
+  if (faviconLink && window.SOLUTIONS_IMAGE_SRC) {
+    const img = new Image();
+    img.decoding = 'async';
+    img.onload = () => {
+      const size = 64;
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      const s = Math.min(img.width, img.height);
+      const sx = Math.floor((img.width - s) / 2);
+      const sy = Math.floor((img.height - s) / 2);
+      ctx.drawImage(img, sx, sy, s, s, 0, 0, size, size);
+      faviconLink.setAttribute('href', canvas.toDataURL('image/png'));
+    };
+    img.src = window.SOLUTIONS_IMAGE_SRC;
+  }
 
   const setStagger = () => {
     const groups = [
