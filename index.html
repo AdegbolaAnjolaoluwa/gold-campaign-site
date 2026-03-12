@@ -869,111 +869,7 @@
       transform: translateY(0);
     }
 
-    /* ===== GALLERY / CAROUSEL ===== */
-    .gallery-section {
-      background: #060D1F;
-      position: relative;
-      overflow: hidden;
-    }
 
-    .carousel {
-      position: relative;
-      border: 1px solid rgba(212, 160, 23, 0.22);
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(14px);
-      overflow: hidden;
-      border-radius: 18px;
-      max-width: 560px;
-      margin: 0 auto;
-    }
-
-    .carousel-viewport {
-      overflow: hidden;
-      position: relative;
-    }
-
-    .carousel-track {
-      display: flex;
-      transition: transform 0.45s ease;
-      will-change: transform;
-    }
-
-    .carousel-slide {
-      min-width: 100%;
-      aspect-ratio: 4 / 5;
-      display: grid;
-      place-items: center;
-      background: radial-gradient(circle at 40% 40%, rgba(10, 36, 114, 0.25) 0%, rgba(6, 13, 31, 0.95) 60%);
-      position: relative;
-    }
-
-    .carousel-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: saturate(1.05) contrast(1.05);
-    }
-
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 1px solid rgba(212, 160, 23, 0.35);
-      background: rgba(6, 13, 31, 0.75);
-      color: var(--gold-light);
-      cursor: pointer;
-      z-index: 2;
-      display: grid;
-      place-items: center;
-      font-size: 1.5rem;
-      backdrop-filter: blur(10px);
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .carousel-btn:hover {
-      transform: translateY(-50%) scale(1.06);
-      background: rgba(10, 36, 114, 0.65);
-    }
-
-    .carousel-btn:active {
-      transform: translateY(-50%) scale(0.98);
-    }
-
-    .carousel-btn.prev {
-      left: 14px;
-    }
-
-    .carousel-btn.next {
-      right: 14px;
-    }
-
-    .carousel-dots {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 12px 18px;
-      background: rgba(0, 0, 0, 0.15);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .carousel-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: 1px solid rgba(212, 160, 23, 0.55);
-      background: rgba(255, 255, 255, 0.06);
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .carousel-dot.active {
-      background: var(--gold);
-      transform: scale(1.12);
-    }
 
     /* ===== FLOATING VOTE BUTTON ===== */
     .vote-float {
@@ -1106,9 +1002,7 @@
         padding: 22px 30px;
       }
 
-      .carousel-btn {
-        display: none;
-      }
+
     }
   </style>
 </head>
@@ -1127,7 +1021,7 @@
       <a href="#hero">Home</a>
       <a href="#problems">Problems</a>
       <a href="#solutions">Solutions</a>
-      <a href="#gallery">Gallery</a>
+
       <a href="#why">Why Gold</a>
     </div>
   </nav>
@@ -1313,21 +1207,7 @@
     </div>
   </section>
 
-  <section class="gallery-section" id="gallery">
-    <div class="section-label">Campaign Poster</div>
-    <h2 class="section-title section-title--dramatic">
-      <span class="stroke-word">CAMPAIGN</span>
-      <span class="fill-word" style="color: var(--gold-light);">POSTER</span>
-    </h2>
-    <div class="carousel reveal" id="carousel">
-      <button class="carousel-btn prev" type="button" aria-label="Previous slide">‹</button>
-      <div class="carousel-viewport">
-        <div class="carousel-track" id="carouselTrack"></div>
-      </div>
-      <button class="carousel-btn next" type="button" aria-label="Next slide">›</button>
-      <div class="carousel-dots" id="carouselDots"></div>
-    </div>
-  </section>
+
 
   <!-- WHY GOLD BANNER -->
   <div class="why-section" id="why">
@@ -1371,8 +1251,7 @@
     const setStagger = () => {
       const groups = [
         { selector: '.problems-grid .reveal', step: 110 },
-        { selector: '.solutions-list .reveal', step: 110 },
-        { selector: '.gallery-section .reveal', step: 90 }
+        { selector: '.solutions-list .reveal', step: 110 }
       ];
       groups.forEach(({ selector, step }) => {
         const els = Array.from(document.querySelectorAll(selector));
@@ -1536,70 +1415,7 @@
       });
     }
 
-    const carousel = document.getElementById('carousel');
-    const carouselTrack = document.getElementById('carouselTrack');
-    const carouselDots = document.getElementById('carouselDots');
-    if (carousel && carouselTrack && carouselDots) {
-      const extraGallerySources = ['./gold-hero.jpg', './gold-campaign-poster.jpg'];
-      const safeSources = extraGallerySources;
 
-      safeSources.forEach((src, idx) => {
-        const slide = document.createElement('div');
-        slide.className = 'carousel-slide';
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = `Gold campaign photo ${idx + 1}`;
-        img.loading = 'lazy';
-        img.decoding = 'async';
-        slide.appendChild(img);
-        carouselTrack.appendChild(slide);
-
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.className = 'carousel-dot';
-        dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
-        dot.addEventListener('click', () => goTo(idx));
-        carouselDots.appendChild(dot);
-      });
-
-      const dots = Array.from(carouselDots.querySelectorAll('.carousel-dot'));
-      let index = 0;
-
-      const setIndex = (i) => {
-        if (!safeSources.length) return;
-        index = (i + safeSources.length) % safeSources.length;
-        carouselTrack.style.transform = `translateX(${-index * 100}%)`;
-        dots.forEach((d, di) => d.classList.toggle('active', di === index));
-      };
-      const goTo = (i) => setIndex(i);
-      const next = () => setIndex(index + 1);
-      const prev = () => setIndex(index - 1);
-
-      const prevBtn = carousel.querySelector('.carousel-btn.prev');
-      const nextBtn = carousel.querySelector('.carousel-btn.next');
-      if (prevBtn) prevBtn.addEventListener('click', prev);
-      if (nextBtn) nextBtn.addEventListener('click', next);
-
-      let startX = 0;
-      let active = false;
-      const viewport = carousel.querySelector('.carousel-viewport');
-      if (viewport) {
-        viewport.addEventListener('pointerdown', (e) => {
-          active = true;
-          startX = e.clientX;
-          viewport.setPointerCapture(e.pointerId);
-        });
-        viewport.addEventListener('pointerup', (e) => {
-          if (!active) return;
-          active = false;
-          const dx = e.clientX - startX;
-          if (Math.abs(dx) > 40) (dx < 0 ? next() : prev());
-        });
-        viewport.addEventListener('pointercancel', () => { active = false; });
-      }
-
-      setIndex(0);
-    }
   </script>
 </body>
 
