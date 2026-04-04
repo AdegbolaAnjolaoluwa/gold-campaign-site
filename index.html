@@ -48,36 +48,60 @@
       z-index: 110;
       background: rgba(6, 13, 31, 0.92);
       border-bottom: 2px solid var(--gold);
-      padding: 14px 40px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      height: 62px;
+      padding: 0 22px;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .nav-logo {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem;
+      font-size: 1.55rem;
       color: var(--gold-light);
       letter-spacing: 3px;
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
-      gap: 30px;
+      gap: 18px;
+      align-items: center;
+      white-space: nowrap;
     }
 
     .nav-links a {
       color: var(--white);
       text-decoration: none;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      transition: color 0.3s;
+      transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      padding: 9px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
     }
 
     .nav-links a:hover {
       color: var(--gold-light);
+      background: rgba(212, 160, 23, 0.12);
+      border-color: rgba(212, 160, 23, 0.22);
+    }
+
+    .nav-links a:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.35);
     }
 
     .nav-toggle {
@@ -852,9 +876,9 @@
 
     .gallery-scroll {
       display: flex;
-      gap: 24px;
+      gap: 0;
       width: max-content;
-      padding: 40px 0; /* Removed side padding for seamless loop */
+      padding: 0;
       animation: galleryAutoScroll 30s linear infinite;
       will-change: transform;
     }
@@ -865,7 +889,7 @@
 
     @keyframes galleryAutoScroll {
       from { transform: translate3d(0, 0, 0); }
-      to { transform: translate3d(calc(-33.333% - 8px), 0, 0); }
+      to { transform: translate3d(-50%, 0, 0); }
     }
 
     .gallery-item {
@@ -875,7 +899,7 @@
       cursor: pointer;
       transition: all 0.3s ease;
       flex-shrink: 0;
-      width: 320px;
+      width: 33.333vw;
     }
 
     .gallery-item:hover {
@@ -1026,6 +1050,9 @@
       background: linear-gradient(135deg, #060D1F 0%, #0A2472 100%);
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .bio-layout {
@@ -1033,6 +1060,52 @@
       grid-template-columns: 1fr 1.2fr;
       gap: 60px;
       align-items: center;
+    }
+
+    .bio-quote-only {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 70px 64px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(212, 160, 23, 0.06) 100%);
+      border: 1px solid rgba(212, 160, 23, 0.38);
+      border-radius: 28px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+      position: relative;
+      text-align: center;
+    }
+
+    .bio-quote-only::before,
+    .bio-quote-only::after {
+      position: absolute;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      color: rgba(212, 160, 23, 0.55);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .bio-quote-only::before {
+      content: "“";
+      left: 22px;
+      top: 18px;
+    }
+
+    .bio-quote-only::after {
+      content: "”";
+      right: 22px;
+      bottom: 8px;
+    }
+
+    .bio-quote-only p {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.6rem, 3vw, 2.55rem);
+      line-height: 1.45;
+      color: rgba(255, 255, 255, 0.94);
+      text-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
     }
 
     .bio-img-wrap {
@@ -1218,7 +1291,7 @@
       }
 
       nav {
-        padding: 14px 20px;
+        padding: 0 14px;
       }
 
       .nav-toggle {
@@ -1279,6 +1352,21 @@
         text-align: left;
       }
 
+      .bio-quote-only {
+        padding: 46px 22px;
+        border-radius: 22px;
+      }
+
+      .bio-quote-only::before {
+        left: 14px;
+        top: 12px;
+      }
+
+      .bio-quote-only::after {
+        right: 14px;
+        bottom: 4px;
+      }
+
 
     }
   </style>
@@ -1288,19 +1376,21 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">GOLD 2026</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-      <div class="nav-toggle-bars" aria-hidden="true">
-        <span></span><span></span><span></span>
+    <div class="nav-inner">
+      <div class="nav-logo">GOLD 2026</div>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <div class="nav-toggle-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#hero">Home</a>
+        <a href="#bio">Vision</a>
+        <a href="#problems">Problems</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#values">Foundations</a>
+        <a href="#why">Why Gold</a>
       </div>
-    </button>
-    <div class="nav-links" id="navLinks">
-      <a href="#hero">Home</a>
-      <a href="#bio">Meet Gold</a>
-      <a href="#problems">Problems</a>
-      <a href="#solutions">Solutions</a>
-      <a href="#values">Foundations</a>
-      <a href="#why">Why Gold</a>
     </div>
   </nav>
   <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
@@ -1354,21 +1444,8 @@
 
   <!-- BIO SECTION -->
   <section class="bio-section" id="bio">
-    <div class="bio-layout">
-      <div class="bio-img-wrap reveal">
-        <img src="./gallery3.jpg" alt="Ashimolowo Gold Bio Photo">
-      </div>
-      <div class="bio-content reveal">
-        <div class="section-label">The Person Behind the Vision</div>
-        <h2>MEET <span>ASHIMOLOWO GOLD</span></h2>
-        <div class="bio-text">
-          <p>I am driven by a singular passion: transforming the COLAW experience into something truly extraordinary. My journey in the College of Law has shown me that while our academic pursuits are rigorous, our social connections are what sustain us and make our time here unforgettable.</p>
-          <p>As your candidate for Assistant Director of Socials, I bring more than just ideas I bring a commitment to organization, inclusion, and excellence. I believe every law student deserves a community that celebrates their wins, supports their growth, and provides a much-needed breath of fresh air amidst the books.</p>
-        </div>
-        <div class="bio-quote">
-          "I am not just running for a position; I am running to set a new standard for what social life in COLAW can be."
-        </div>
-      </div>
+    <div class="bio-quote-only reveal">
+      <p>I am not just running for a position; I am running to set a new standard for what social life in COLAW can be.</p>
     </div>
   </section>
 
@@ -1380,7 +1457,7 @@
       </div>
       <div class="stat-sep">·</div>
       <div class="stat">
-        <div class="stat-num" data-target="6">0</div>
+        <div class="stat-num" data-target="4">0</div>
         <div class="stat-label">Problems Identified</div>
       </div>
       <div class="stat-sep">·</div>
@@ -1408,42 +1485,24 @@
     <div class="problems-grid">
       <div class="problem-card reveal">
         <div class="problem-num">01</div>
-        <div class="problem-icon">😔</div>
         <h3>Social Isolation & Burnout</h3>
         <p>Law students are buried under intense academic pressure with little to no organized social outlets, leading
           to burnout, anxiety, and disconnection from peers.</p>
       </div>
       <div class="problem-card reveal">
         <div class="problem-num">02</div>
-        <div class="problem-icon">🏚️</div>
         <h3>Weak Class Community</h3>
         <p>There is a lack of bonding activities across levels. Students from different years rarely interact, creating
           a fragmented and divided student body in COLAW.</p>
       </div>
       <div class="problem-card reveal">
         <div class="problem-num">03</div>
-        <div class="problem-icon">📅</div>
         <h3>Poor Event Planning & Execution</h3>
         <p>Past social events have been poorly organized, under-publicized, and poorly attended. Students feel events
           don't reflect their interests or celebrate their identity as law students.</p>
       </div>
       <div class="problem-card reveal">
         <div class="problem-num">04</div>
-        <div class="problem-icon">🤝</div>
-        <h3>Lack of Networking Opportunities</h3>
-        <p>There are virtually no structured opportunities for law students to build professional networks, connect with
-          alumni, or engage with legal professionals during their time on campus.</p>
-      </div>
-      <div class="problem-card reveal">
-        <div class="problem-num">05</div>
-        <div class="problem-icon">🎓</div>
-        <h3>No Culture of Celebration</h3>
-        <p>Academic milestones, birthdays, and student achievements go unrecognized. COLAW lacks a culture of
-          celebrating its students and honouring their progress and excellence.</p>
-      </div>
-      <div class="problem-card reveal">
-        <div class="problem-num">06</div>
-        <div class="problem-icon">📢</div>
         <h3>Student Voice Not Heard</h3>
         <p>Students rarely have input into the social agenda. Events are planned without consulting the student body,
           leaving the majority unrepresented and disengaged.</p>
@@ -1539,10 +1598,6 @@
         <div class="gallery-item"><img src="./gallery1.jpg"></div>
         <div class="gallery-item"><img src="./gallery2.jpg"></div>
         <div class="gallery-item"><img src="./gallery3.jpg"></div>
-        <!-- Triple the items to ensure no gaps on very wide screens and smoother reset -->
-        <div class="gallery-item"><img src="./gallery1.jpg"></div>
-        <div class="gallery-item"><img src="./gallery2.jpg"></div>
-        <div class="gallery-item"><img src="./gallery3.jpg"></div>
         <div class="gallery-item"><img src="./gallery1.jpg"></div>
         <div class="gallery-item"><img src="./gallery2.jpg"></div>
         <div class="gallery-item"><img src="./gallery3.jpg"></div>
@@ -1563,15 +1618,6 @@
       truly invested in making every student's experience unforgettable. GOLD IS NOT JUST A NAME. IT’S A STANDARD.
 </p>
   </div>
-
-  <!-- PLEDGE YOUR VOTE -->
-  <section class="pledge-section" id="pledge">
-    <div class="pledge-card reveal">
-      <h2>BE PART OF THE MOVEMENT</h2>
-      <p>A better COLAW starts with your commitment. Join the hundreds of students who have already pledged their support for a more vibrant, inclusive, and organized social experience.</p>
-      <button class="pledge-btn" id="pledgeBtn">PLEDGE YOUR VOTE</button>
-    </div>
-  </section>
 
   <!-- FOOTER -->
   <footer>
