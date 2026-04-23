@@ -1454,11 +1454,110 @@
                     right: 14px;
                     bottom: 4px;
                 }
+
+                /* VICTORY OVERLAY */
+                .victory-overlay {
+                    position: fixed;
+                    inset: 0;
+                    background: var(--dark);
+                    z-index: 10000;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    animation: fadeOutOverlay 1s ease forwards 4s;
+                    pointer-events: none;
+                }
+
+                @keyframes fadeOutOverlay {
+                    to {
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                }
+
+                .victory-content {
+                    text-align: center;
+                    padding: 40px;
+                }
+
+                .victory-word {
+                    font-family: "Bebas Neue", sans-serif;
+                    font-size: clamp(4rem, 15vw, 12rem);
+                    color: var(--gold);
+                    letter-spacing: 15px;
+                    line-height: 0.8;
+                    margin-bottom: 20px;
+                    display: block;
+                    animation: victoryPop 0.8s
+                        cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+                    opacity: 0;
+                    text-shadow: 0 0 50px rgba(212, 160, 23, 0.5);
+                }
+
+                @keyframes victoryPop {
+                    from {
+                        transform: scale(0.5) translateY(50px);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: scale(1) translateY(0);
+                        opacity: 1;
+                    }
+                }
+
+                .victory-name {
+                    font-family: "Montserrat", sans-serif;
+                    font-weight: 900;
+                    font-size: clamp(1.2rem, 4vw, 2.5rem);
+                    letter-spacing: 8px;
+                    text-transform: uppercase;
+                    color: var(--white);
+                    opacity: 0;
+                    animation: fadeIn 0.5s ease forwards 1s;
+                }
+
+                .victory-status {
+                    color: var(--gold-light);
+                    margin-top: 10px;
+                    font-size: 1rem;
+                    letter-spacing: 4px;
+                    opacity: 0;
+                    animation: fadeIn 0.5s ease forwards 1.5s;
+                }
+
+                /* ENHANCED WINNER STYLING */
+                .winner-banner {
+                    background: var(--gold);
+                    color: var(--dark);
+                    font-family: "Bebas Neue", sans-serif;
+                    font-size: 1.2rem;
+                    padding: 10px 0;
+                    text-align: center;
+                    letter-spacing: 5px;
+                    position: absolute;
+                    width: 150%;
+                    top: 40px;
+                    right: -100px;
+                    transform: rotate(25deg);
+                    z-index: 5;
+                    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+                }
             }
         </style>
     </head>
 
     <body>
+        <div class="victory-overlay">
+            <div class="victory-content">
+                <span class="victory-word">VICTORY</span>
+                <div class="victory-name">ASHIMOLOWO GOLD</div>
+                <div class="victory-status">
+                    YOUR NEW ASSISTANT DIRECTOR OF SOCIALS
+                </div>
+            </div>
+        </div>
+
         <!-- NAV -->
         <nav>
             <div class="nav-inner">
@@ -1527,8 +1626,24 @@
                 <div class="hero-eyebrow">
                     College of Law · Caleb University · Lagos
                 </div>
-                <div class="hero-vote">✦ ELECTED ✦</div>
-                <h1 class="hero-name">ASHIMOLOWO<br /><span>GOLD</span></h1>
+                <div
+                    class="hero-vote"
+                    style="
+                        color: var(--gold-light);
+                        font-size: 2.8rem;
+                        letter-spacing: 12px;
+                        margin-bottom: 15px;
+                        text-shadow: 0 0 20px rgba(245, 200, 66, 0.4);
+                    "
+                >
+                    ✦ THE WINNER ✦
+                </div>
+                <h1
+                    class="hero-name"
+                    style="text-shadow: 0 0 30px rgba(212, 160, 23, 0.6)"
+                >
+                    ASHIMOLOWO<br /><span>GOLD</span>
+                </h1>
                 <div class="hero-title">Assistant Director of Socials</div>
                 <p class="hero-tagline">
                     "Student life is not complete<br />without social life. Let
@@ -1540,6 +1655,7 @@
             </div>
             <div class="hero-image">
                 <div class="hero-img-wrap">
+                    <div class="winner-banner">OFFICIAL WINNER</div>
                     <div class="badge">
                         <span class="badge-star">★★★</span>
                         <span class="badge-vote">ELECTED</span>
