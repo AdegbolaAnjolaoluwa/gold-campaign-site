@@ -1497,7 +1497,7 @@
             "
         >
             <div class="ticker-inner">
-                <span class="ticker-item">VOTE ASHIMOLOWO GOLD</span>
+                <span class="ticker-item">ELECTED: ASHIMOLOWO GOLD</span>
                 <span class="ticker-sep">✦</span>
                 <span class="ticker-item">ASSISTANT DIRECTOR OF SOCIALS</span>
                 <span class="ticker-sep">✦</span>
@@ -1507,7 +1507,7 @@
                     >COLLEGE OF LAW · CALEB UNIVERSITY</span
                 >
                 <span class="ticker-sep">✦</span>
-                <span class="ticker-item">VOTE ASHIMOLOWO GOLD</span>
+                <span class="ticker-item">ELECTED: ASHIMOLOWO GOLD</span>
                 <span class="ticker-sep">✦</span>
                 <span class="ticker-item">ASSISTANT DIRECTOR OF SOCIALS</span>
                 <span class="ticker-sep">✦</span>
@@ -1527,9 +1527,9 @@
                 <div class="hero-eyebrow">
                     College of Law · Caleb University · Lagos
                 </div>
-                <div class="hero-vote">✦ VOTE ✦</div>
+                <div class="hero-vote">✦ ELECTED ✦</div>
                 <h1 class="hero-name">ASHIMOLOWO<br /><span>GOLD</span></h1>
-                <div class="hero-title">For Assistant Director of Socials</div>
+                <div class="hero-title">Assistant Director of Socials</div>
                 <p class="hero-tagline">
                     "Student life is not complete<br />without social life. Let
                     me bring<br />the experience to you."
@@ -1542,7 +1542,7 @@
                 <div class="hero-img-wrap">
                     <div class="badge">
                         <span class="badge-star">★★★</span>
-                        <span class="badge-vote">VOTE</span>
+                        <span class="badge-vote">ELECTED</span>
                         <span class="badge-vote">GOLD</span>
                         <span class="badge-star">★★★</span>
                     </div>
@@ -1812,7 +1812,7 @@
             </div>
         </footer>
 
-        <a class="vote-float" href="#hero">VOTE GOLD</a>
+        <a class="vote-float" href="#hero">GOLD 2026</a>
 
         <script>
             const reduceMotion =
@@ -2153,6 +2153,53 @@
                     }, 250);
                 });
             }
+
+            // Automatic Victory Confetti on Load
+            window.addEventListener("load", () => {
+                if (reduceMotion) return;
+
+                const duration = 5 * 1000;
+                const animationEnd = Date.now() + duration;
+                const defaults = {
+                    startVelocity: 30,
+                    spread: 360,
+                    ticks: 60,
+                    zIndex: 1000,
+                };
+
+                const randomInRange = (min, max) =>
+                    Math.random() * (max - min) + min;
+
+                const interval = setInterval(function () {
+                    const timeLeft = animationEnd - Date.now();
+
+                    if (timeLeft <= 0) {
+                        return clearInterval(interval);
+                    }
+
+                    const particleCount = 50 * (timeLeft / duration);
+                    confetti(
+                        Object.assign({}, defaults, {
+                            particleCount,
+                            origin: {
+                                x: randomInRange(0.1, 0.3),
+                                y: Math.random() - 0.2,
+                            },
+                            colors: ["#D4A017", "#F5C842", "#FFFFFF"],
+                        }),
+                    );
+                    confetti(
+                        Object.assign({}, defaults, {
+                            particleCount,
+                            origin: {
+                                x: randomInRange(0.7, 0.9),
+                                y: Math.random() - 0.2,
+                            },
+                            colors: ["#D4A017", "#F5C842", "#FFFFFF"],
+                        }),
+                    );
+                }, 250);
+            });
         </script>
     </body>
 </html>
