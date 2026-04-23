@@ -1454,95 +1454,105 @@
                     right: 14px;
                     bottom: 4px;
                 }
+            }
 
-                /* VICTORY OVERLAY */
-                .victory-overlay {
-                    position: fixed;
-                    inset: 0;
-                    background: var(--dark);
-                    z-index: 10000;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    animation: fadeOutOverlay 1s ease forwards 4s;
+            /* VICTORY OVERLAY - NOW GLOBAL */
+            .victory-overlay {
+                position: fixed;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                background: #060d1f;
+                z-index: 9999999;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                animation: fadeOutOverlay 1s ease forwards 7s;
+                pointer-events: auto;
+            }
+
+            @keyframes fadeOutOverlay {
+                to {
+                    opacity: 0;
+                    visibility: hidden;
                     pointer-events: none;
                 }
+            }
 
-                @keyframes fadeOutOverlay {
-                    to {
-                        opacity: 0;
-                        visibility: hidden;
-                    }
-                }
+            .victory-content {
+                text-align: center;
+                padding: 40px;
+                z-index: 10000000;
+                width: 100%;
+            }
 
-                .victory-content {
-                    text-align: center;
-                    padding: 40px;
-                }
+            .victory-word {
+                font-family: "Bebas Neue", sans-serif;
+                font-size: clamp(4rem, 20vw, 15rem);
+                color: var(--gold);
+                letter-spacing: clamp(15px, 5vw, 40px);
+                line-height: 0.8;
+                margin-bottom: 10px;
+                display: block;
+                animation: victoryPop 0.8s
+                    cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+                opacity: 0;
+                text-shadow: 0 0 80px rgba(212, 160, 23, 0.9);
+            }
 
-                .victory-word {
-                    font-family: "Bebas Neue", sans-serif;
-                    font-size: clamp(4rem, 15vw, 12rem);
-                    color: var(--gold);
-                    letter-spacing: 15px;
-                    line-height: 0.8;
-                    margin-bottom: 20px;
-                    display: block;
-                    animation: victoryPop 0.8s
-                        cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            @keyframes victoryPop {
+                from {
+                    transform: scale(0.6) translateY(60px);
                     opacity: 0;
-                    text-shadow: 0 0 50px rgba(212, 160, 23, 0.5);
                 }
+                to {
+                    transform: scale(1) translateY(0);
+                    opacity: 1;
+                }
+            }
 
-                @keyframes victoryPop {
-                    from {
-                        transform: scale(0.5) translateY(50px);
-                        opacity: 0;
-                    }
-                    to {
-                        transform: scale(1) translateY(0);
-                        opacity: 1;
-                    }
-                }
+            .victory-name {
+                font-family: "Montserrat", sans-serif;
+                font-weight: 900;
+                font-size: clamp(1.8rem, 7vw, 5rem);
+                letter-spacing: clamp(10px, 4vw, 20px);
+                text-transform: uppercase;
+                color: var(--white);
+                opacity: 0;
+                animation: fadeIn 0.8s ease forwards 1.2s;
+                text-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+                margin: 20px 0;
+            }
 
-                .victory-name {
-                    font-family: "Montserrat", sans-serif;
-                    font-weight: 900;
-                    font-size: clamp(1.2rem, 4vw, 2.5rem);
-                    letter-spacing: 8px;
-                    text-transform: uppercase;
-                    color: var(--white);
-                    opacity: 0;
-                    animation: fadeIn 0.5s ease forwards 1s;
-                }
+            .victory-status {
+                color: var(--gold-light);
+                margin-top: 15px;
+                font-size: clamp(1rem, 3vw, 2rem);
+                letter-spacing: clamp(5px, 2vw, 12px);
+                opacity: 0;
+                animation: fadeIn 0.5s ease forwards 1.5s;
+                text-transform: uppercase;
+                font-weight: 800;
+                text-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            }
 
-                .victory-status {
-                    color: var(--gold-light);
-                    margin-top: 10px;
-                    font-size: 1rem;
-                    letter-spacing: 4px;
-                    opacity: 0;
-                    animation: fadeIn 0.5s ease forwards 1.5s;
-                }
-
-                /* ENHANCED WINNER STYLING */
-                .winner-banner {
-                    background: var(--gold);
-                    color: var(--dark);
-                    font-family: "Bebas Neue", sans-serif;
-                    font-size: 1.2rem;
-                    padding: 10px 0;
-                    text-align: center;
-                    letter-spacing: 5px;
-                    position: absolute;
-                    width: 150%;
-                    top: 40px;
-                    right: -100px;
-                    transform: rotate(25deg);
-                    z-index: 5;
-                    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-                }
+            /* ENHANCED WINNER STYLING */
+            .winner-banner {
+                background: var(--gold);
+                color: var(--dark);
+                font-family: "Bebas Neue", sans-serif;
+                font-size: 1.2rem;
+                padding: 10px 0;
+                text-align: center;
+                letter-spacing: 5px;
+                position: absolute;
+                width: 150%;
+                top: 40px;
+                right: -100px;
+                transform: rotate(25deg);
+                z-index: 5;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
             }
         </style>
     </head>
@@ -1553,24 +1563,18 @@
                 <span
                     class="victory-word"
                     style="
-                        font-size: clamp(2.5rem, 10vw, 6rem);
-                        margin-bottom: 0;
-                        letter-spacing: 20px;
+                        font-size: clamp(2.5rem, 15vw, 9rem);
+                        margin-bottom: -10px;
+                        letter-spacing: clamp(10px, 6vw, 40px);
                         color: var(--white);
-                        -webkit-text-stroke: 1px var(--gold);
+                        -webkit-text-stroke: 2px var(--gold);
+                        text-shadow: 0 0 40px rgba(212, 160, 23, 0.5);
                     "
                     >THANK YOU</span
                 >
                 <span class="victory-word">VICTORY</span>
                 <div class="victory-name">ASHIMOLOWO GOLD</div>
-                <div
-                    class="victory-status"
-                    style="
-                        color: var(--gold-light);
-                        font-weight: 700;
-                        letter-spacing: 5px;
-                    "
-                >
+                <div class="victory-status">
                     COLAW HAS DECIDED. THE FUTURE IS GOLD.
                 </div>
             </div>
