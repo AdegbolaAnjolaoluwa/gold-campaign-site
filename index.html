@@ -20,7 +20,7 @@
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
         <style>
             :root {
-                --blue: #d4a017;
+                --blue: #0a2472;
                 --gold: #d4a017;
                 --gold-light: #f5c842;
                 --white: #ffffff;
@@ -1455,131 +1455,10 @@
                     bottom: 4px;
                 }
             }
-
-            /* VICTORY OVERLAY - NOW GLOBAL */
-            .victory-overlay {
-                position: fixed;
-                inset: 0;
-                width: 100%;
-                height: 100%;
-                background: #060d1f;
-                z-index: 9999999;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                animation: fadeOutOverlay 1s ease forwards 3.1s;
-                pointer-events: auto;
-            }
-
-            @keyframes fadeOutOverlay {
-                to {
-                    opacity: 0;
-                    visibility: hidden;
-                    pointer-events: none;
-                }
-            }
-
-            .victory-content {
-                text-align: center;
-                padding: 40px;
-                z-index: 10000000;
-                width: 100%;
-            }
-
-            .victory-word {
-                font-family: "Bebas Neue", sans-serif;
-                font-size: clamp(4rem, 20vw, 15rem);
-                color: var(--gold);
-                letter-spacing: clamp(15px, 5vw, 40px);
-                line-height: 0.8;
-                margin-bottom: 10px;
-                display: block;
-                animation: victoryPop 0.8s
-                    cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-                opacity: 0;
-                text-shadow: 0 0 80px rgba(212, 160, 23, 0.9);
-            }
-
-            @keyframes victoryPop {
-                from {
-                    transform: scale(0.6) translateY(60px);
-                    opacity: 0;
-                }
-                to {
-                    transform: scale(1) translateY(0);
-                    opacity: 1;
-                }
-            }
-
-            .victory-name {
-                font-family: "Montserrat", sans-serif;
-                font-weight: 900;
-                font-size: clamp(1.8rem, 7vw, 5rem);
-                letter-spacing: clamp(10px, 4vw, 20px);
-                text-transform: uppercase;
-                color: var(--white);
-                opacity: 0;
-                animation: fadeIn 0.8s ease forwards 1.2s;
-                text-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
-                margin: 20px 0;
-            }
-
-            .victory-status {
-                color: var(--gold-light);
-                margin-top: 15px;
-                font-size: clamp(1rem, 3vw, 2rem);
-                letter-spacing: clamp(5px, 2vw, 12px);
-                opacity: 0;
-                animation: fadeIn 0.5s ease forwards 1.5s;
-                text-transform: uppercase;
-                font-weight: 800;
-                text-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-            }
-
-            /* ENHANCED WINNER STYLING */
-            .winner-banner {
-                background: var(--gold);
-                color: var(--dark);
-                font-family: "Bebas Neue", sans-serif;
-                font-size: 1.2rem;
-                padding: 10px 0;
-                text-align: center;
-                letter-spacing: 5px;
-                position: absolute;
-                width: 150%;
-                top: 40px;
-                right: -100px;
-                transform: rotate(25deg);
-                z-index: 5;
-                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-            }
         </style>
     </head>
 
     <body>
-        <div class="victory-overlay">
-            <div class="victory-content">
-                <span
-                    class="victory-word"
-                    style="
-                        font-size: clamp(2.5rem, 15vw, 9rem);
-                        margin-bottom: -10px;
-                        letter-spacing: clamp(10px, 6vw, 40px);
-                        color: var(--white);
-                        -webkit-text-stroke: 2px var(--gold);
-                        text-shadow: 0 0 40px rgba(212, 160, 23, 0.5);
-                    "
-                    >THANK YOU</span
-                >
-                <span class="victory-word">VICTORY</span>
-                <div class="victory-name">ASHIMOLOWO GOLD</div>
-                <div class="victory-status">
-                    COLAW HAS DECIDED. THE FUTURE IS GOLD.
-                </div>
-            </div>
-        </div>
-
         <!-- NAV -->
         <nav>
             <div class="nav-inner">
@@ -1618,14 +1497,9 @@
             "
         >
             <div class="ticker-inner">
-                <span
-                    class="ticker-item"
-                    style="color: var(--white); font-size: 1.4rem"
-                    >THANK YOU COLAW!</span
-                >
+                <span class="ticker-item">VOTE ASHIMOLOWO GOLD</span>
                 <span class="ticker-sep">✦</span>
-                <span class="ticker-item">ELECTED: ASHIMOLOWO GOLD</span>
-                <span class="ticker-sep">✦</span>
+                <span class="ticker-item">ASSISTANT DIRECTOR OF SOCIALS</span>
                 <span class="ticker-sep">✦</span>
                 <span class="ticker-item">NOT JUST EVENTS. A BETTER COLAW</span>
                 <span class="ticker-sep">✦</span>
@@ -1633,7 +1507,7 @@
                     >COLLEGE OF LAW · CALEB UNIVERSITY</span
                 >
                 <span class="ticker-sep">✦</span>
-                <span class="ticker-item">ELECTED: ASHIMOLOWO GOLD</span>
+                <span class="ticker-item">VOTE ASHIMOLOWO GOLD</span>
                 <span class="ticker-sep">✦</span>
                 <span class="ticker-item">ASSISTANT DIRECTOR OF SOCIALS</span>
                 <span class="ticker-sep">✦</span>
@@ -1653,25 +1527,9 @@
                 <div class="hero-eyebrow">
                     College of Law · Caleb University · Lagos
                 </div>
-                <div
-                    class="hero-vote"
-                    style="
-                        color: var(--gold-light);
-                        font-size: 2.8rem;
-                        letter-spacing: 12px;
-                        margin-bottom: 15px;
-                        text-shadow: 0 0 20px rgba(245, 200, 66, 0.4);
-                    "
-                >
-                    ✦ THE WINNER ✦
-                </div>
-                <h1
-                    class="hero-name"
-                    style="text-shadow: 0 0 30px rgba(212, 160, 23, 0.6)"
-                >
-                    ASHIMOLOWO<br /><span>GOLD</span>
-                </h1>
-                <div class="hero-title">Assistant Director of Socials</div>
+                <div class="hero-vote">✦ VOTE ✦</div>
+                <h1 class="hero-name">ASHIMOLOWO<br /><span>GOLD</span></h1>
+                <div class="hero-title">For Assistant Director of Socials</div>
                 <p class="hero-tagline">
                     "Student life is not complete<br />without social life. Let
                     me bring<br />the experience to you."
@@ -1682,10 +1540,9 @@
             </div>
             <div class="hero-image">
                 <div class="hero-img-wrap">
-                    <div class="winner-banner">OFFICIAL WINNER</div>
                     <div class="badge">
                         <span class="badge-star">★★★</span>
-                        <span class="badge-vote">ELECTED</span>
+                        <span class="badge-vote">VOTE</span>
                         <span class="badge-vote">GOLD</span>
                         <span class="badge-star">★★★</span>
                     </div>
@@ -1703,21 +1560,9 @@
         <!-- BIO SECTION -->
         <section class="bio-section" id="bio">
             <div class="bio-quote-only reveal">
-                <h2
-                    style="
-                        font-family: &quot;Bebas Neue&quot;, sans-serif;
-                        font-size: clamp(3rem, 10vw, 6rem);
-                        color: var(--gold-light);
-                        margin-bottom: 20px;
-                        line-height: 1;
-                    "
-                >
-                    THANK YOU COLAW!
-                </h2>
                 <p>
-                    This victory belongs to every student who believes in a
-                    better COLAW. Together, we are going to set a new standard
-                    for what social life here can be.
+                    I am not just running for a position; I am running to set a
+                    new standard for what social life in COLAW can be.
                 </p>
             </div>
         </section>
@@ -1967,7 +1812,7 @@
             </div>
         </footer>
 
-        <a class="vote-float" href="#hero">GOLD 2026</a>
+        <a class="vote-float" href="#hero">VOTE GOLD</a>
 
         <script>
             const reduceMotion =
@@ -2308,53 +2153,6 @@
                     }, 250);
                 });
             }
-
-            // Automatic Victory Confetti on Load
-            window.addEventListener("load", () => {
-                if (reduceMotion) return;
-
-                const duration = 5 * 1000;
-                const animationEnd = Date.now() + duration;
-                const defaults = {
-                    startVelocity: 30,
-                    spread: 360,
-                    ticks: 60,
-                    zIndex: 1000,
-                };
-
-                const randomInRange = (min, max) =>
-                    Math.random() * (max - min) + min;
-
-                const interval = setInterval(function () {
-                    const timeLeft = animationEnd - Date.now();
-
-                    if (timeLeft <= 0) {
-                        return clearInterval(interval);
-                    }
-
-                    const particleCount = 50 * (timeLeft / duration);
-                    confetti(
-                        Object.assign({}, defaults, {
-                            particleCount,
-                            origin: {
-                                x: randomInRange(0.1, 0.3),
-                                y: Math.random() - 0.2,
-                            },
-                            colors: ["#D4A017", "#F5C842", "#FFFFFF"],
-                        }),
-                    );
-                    confetti(
-                        Object.assign({}, defaults, {
-                            particleCount,
-                            origin: {
-                                x: randomInRange(0.7, 0.9),
-                                y: Math.random() - 0.2,
-                            },
-                            colors: ["#D4A017", "#F5C842", "#FFFFFF"],
-                        }),
-                    );
-                }, 250);
-            });
         </script>
     </body>
 </html>
